@@ -1,0 +1,10 @@
+body{
+	background-color: #eee;
+}
+header{
+	font-family: monospace;
+}
+input{
+	height: 30px;
+	width: 200px;
+}

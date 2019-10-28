@@ -12,10 +12,30 @@
 //lets make an employee profile using closures
 
 function employee(name, salary) {
+    var friendsCount =0; 
+    var obj = {};
+        obj.name = name;
+        obj.salary = salary;
+    
     return {
-        name: name,
-        salary: salary
+      sayMyName : function(){
+        return obj.name;
+      },
+      sayHello : function(){
+        return "hello "+obj.name;
+      },
+      increaseSalary:function(n){
+        return obj.salary += n ;
+      },
+      addFriend:function(object){
+        friendsCount+=1
+        return "you just became friend with " + object.sayMyName() + " , you now have  : "+ friendsCount +" friends";
+      },
+      listFriends:function(){
+        return "You have " + friendsCount +" friend"
+      }
     }
+
 }
 
 var employeeA = employee("jack", 100);
@@ -69,10 +89,44 @@ var employeeC = employee("Sara", 150);
 
 
 // Write your code here .....
+function Pet( name ) {
+  var obj = {} ;
+      obj.name = name ;
+      obj.addInfo = addInfo;
+      obj.increase = increase;
+      obj.availability = false;
+      obj.checkAvailability = checkAvailability;
+      obj.changeState = changeState;
+  return obj
+}
+var addInfo = function(age, owner, gender, species){
+  this.age = age;
+  this.owner = owner;
+  this.gender = gender;
+  this.species = species;
+}
+var increase = function(n){
+  this.age += n
+}
+
+var checkAvailability = function(){
+  if(this.availability === false ){
+    return false
+  }
+  return true
+}
+var changeState = function(){
+  if(this.availability === false){
+    this.availability = true
+  }
+  else {
+    this.availability = false
+  }
+}
 
 
 // Now, to make sure that you are actually reading, make a comment below this and type: Yes I am
-
+//Yes I am
 //=============================================================================
 /*                                  Q3                                       */
 //=============================================================================
@@ -102,6 +156,14 @@ function reduce(array, f, acc) {
 // Use the updated version of reduce to write a function max that returns the maximum number in an array of numbers. 
 
 // Write your code here .....
+function maxNumber(arr){
+  return reduce(arr,function(element,i){
+      if(i > arr[0]){
+        arr[0] = i 
+      }
+      return arr[0]   
+  },arr[0])
+}
 
 
 
